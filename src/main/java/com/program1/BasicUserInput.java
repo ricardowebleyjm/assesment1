@@ -1,4 +1,8 @@
-package com.project1;
+package com.program1;
+/*Create a program that allows a user to input their names, date of birth and gender.
+The program must print back to the user a welcome message with their names, age and the current date. For example:
+ “Welcome Jane, you are 15 years old and today’s date is November 22 2021”
+*/
 
 /**
  * @author WebleyR
