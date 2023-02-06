@@ -15,45 +15,78 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
-public class BasicUserInput {    /**
+public class BasicUserInput {
+ /**
  * Variable declaration
  *
  */
-private String firstName;
     private String lastName;
     private String gender;
     private String dateOfBirth;
 
+    private String firstName;
+
+    /*Accessors and Mutators */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+
 
     public static void main(String[] args) {
+
         BasicUserInput userInput = new BasicUserInput(); // Instance of BasicUserInput class
         Scanner scannerObject = new Scanner(System.in); // declaration of Scanner
 
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("LLLL dd yyyy");
 
         System.out.print("Please enter first name: "); // Prompting user
-        userInput.firstName = scannerObject.next(); // Accepting user input
+        userInput.setFirstName(scannerObject.next());; // Accepting user input
 
         System.out.print("Please enter your last name: "); // Prompting user
-        userInput.lastName = scannerObject.next(); // Accepting user input
+        userInput.setLastName(scannerObject.next()); // Accepting user input
 
         System.out.print("Please enter your gender: "); // Prompting user
         userInput.gender = scannerObject.next(); // Accepting user input
 
         System.out.print("Please enter your Date of birth (YYYY-MM-DD): ");
-        userInput.dateOfBirth = scannerObject.next();
+        userInput.setDateOfBirth(scannerObject.next());
 
-        LocalDate dob = LocalDate.parse(userInput.dateOfBirth);
-        LocalDate currentDate = LocalDate.now(); // get the current date
-        Period period = Period.between(dob, currentDate);
+        LocalDate dob = LocalDate.parse(userInput.getDateOfBirth()); //Retrieving the date of birth
+        LocalDate currentDate = LocalDate.now(); // get the current date and assign value to currentDate
+        Period period = Period.between(dob, currentDate); // calculates the time between the dob and currentDate
 
-        System.out.println("Welcome " + userInput.firstName +" "
-                + userInput.lastName +","
+        System.out.println("Welcome " + userInput.getFirstName() +" "
+                + userInput.getLastName() +","
                 + " you are " + period.getYears()+" years old"
                 + " and today's date is " + currentDate.format(dateFormat));
-
-        scannerObject.close(); //close scanner object to prevent memory leakage
     }
-
-
 }
