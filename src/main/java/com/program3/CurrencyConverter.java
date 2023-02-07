@@ -25,40 +25,57 @@ public class CurrencyConverter {
         * */
 
         public CurrencyConverter(){
-        this.exchangeRateList.put("Jamaican Dollars", 1.50);
-        this.exchangeRateList.put("Cayman Dollars", 0.93);
-        this.exchangeRateList.put("Eastern Caribbean Dollars", 1.66);
-        this.exchangeRateList.put("US Dollars", 1.01);
-        this.exchangeRateList.put("British Pounds", 6.36);
-        this.exchangeRateList.put("Euros", 5.99);
+        this.exchangeRateList.put("JMD", 1.50);
+        this.exchangeRateList.put("KYD", 0.93);
+        this.exchangeRateList.put("ECD", 1.66);
+        this.exchangeRateList.put("USD", 1.01);
+        this.exchangeRateList.put("GBP", 6.36);
+        this.exchangeRateList.put("EURO", 5.99);
     }
 
     /**
      * This method calculates currencies in the existing exchangeRateList. Then,
-     * prints the conversion rate of each currency
-     * @param amount
+     * returns the converted value.
+     * * @param key
+     * @param value
      */
-    public  void convertCurrencies(double amount) {
-        for(Map.Entry<String, Double> exchangeRateList: exchangeRateList.entrySet()){ // loop through the exchangeRateList to get the keys and values
-            String currencyName = exchangeRateList.getKey(); // retrieving the keys from the exchangeRateList
-            double currencyRate = exchangeRateList.getValue(); // retrieving the values from the exchangeRateList
-            double total = amount * currencyRate; // multiplying amount that was passed int by the existing rate
-            System.out.format("%.2f " + "converted to " + currencyName +" "+ "is %.2f " , amount, total);
-            System.out.println();
-        }
+    public  double convertCurrency(String key, double value) {
+        double keyValue = exchangeRateList.get(key);
+        double convertedAmount = keyValue * value;
+        return  convertedAmount;
 
     }
     public static void main(String[] args){
         Scanner scannerObject = new Scanner(System.in);
-        double amount;
-        System.out.print("Enter the amount you want to convert: ");
-        amount = scannerObject.nextDouble(); // saving the user input value
-
         CurrencyConverter converter = new CurrencyConverter(); // create a new instance of CurrencyConverter
-        converter.convertCurrencies(amount); // passing the user value to the convertCurrencies method
-        System.out.println();
 
-        main(null); //Calling the main method, the program runs to until user terminates the program
+        while (true) {
+
+            System.out.println("---------------CURRENCY LIST-----------------");
+            for (String shortName : converter.exchangeRateList.keySet()) {
+                System.out.print("\t" + shortName + " " );
+            }
+            System.out.println("\n--------------------------------------------\n");
+
+
+            System.out.print("Enter the amount you want to convert: ");
+            double amount = scannerObject.nextDouble(); // saving the user input value
+
+            System.out.print("Enter the currency short name, select one from above: ");
+            String currencyShortName = scannerObject.next().toUpperCase();
+
+            System.out.println();
+            if (converter.exchangeRateList.containsKey(currencyShortName)) {
+                System.out.println(amount + " converted to " + currencyShortName + " is: "
+                        + converter.convertCurrency(currencyShortName, amount)); // passing the user value to the convertCurrencies method
+                System.out.println();
+            } else {
+                System.out.println("Currency not in list at the moment. \n");
+                System.out.println();
+            }
+
+        }
+
     }
 
 }

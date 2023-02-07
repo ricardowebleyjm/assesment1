@@ -68,7 +68,7 @@ public class BasicUserInput {
 
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("LLLL dd yyyy");
 
-        System.out.print("Please enter first name: "); // Prompting user
+        System.out.print("Please enter your first name: "); // Prompting user
         userInput.setFirstName(scannerObject.next());; // Accepting user input
 
         System.out.print("Please enter your last name: "); // Prompting user

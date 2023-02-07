@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 import java.lang.Math;
+import java.text.DecimalFormat;
 
 public class SimpleMath {
 
@@ -31,18 +32,18 @@ public class SimpleMath {
         System.out.println("1. Calculate the sum of two numbers ");
         System.out.println("2. Convert a number to two decimal points ");
         System.out.println("3. Perform calculation of Ave, Min, Max SQRT and Sum ");
-        System.out.println("4. Quit ");
+        System.out.println("");
         System.out.print("Please select your choice.....: ");
     }
 
     /**
      * Perform sum of the numbers passed to the method.
-     * @param number1
-     * @param number2
+     * @param firstNumber
+     * @param secondNumber
      * @return the sum of the passed in numbers
      */
-    public int sum(int number1, int number2){
-        return number1 + number2;
+    public int sumOfTwoNumbers(int firstNumber, int secondNumber){
+        return firstNumber + secondNumber;
     }
 
     /**
@@ -57,7 +58,7 @@ public class SimpleMath {
     /**
     * Performs calculation and prints results.
     */
-    public void calculateNumbers(){
+    public void calculateFiveNumbers(){
        //Local variable declaration
         ArrayList<Integer> numberList = new ArrayList<>();
         int sum = 0;
@@ -68,15 +69,11 @@ public class SimpleMath {
 
         // This block prompts the user to enter five(5) numbers.
         System.out.println("Please enter 5 numbers to be calculated: ");
-        for (int i =0; i<5; i++){
-            int count = i+1;
+        for (int i = 0; i < 5; i++){
+            int count = i + 1;
             System.out.print("Enter number " + count + ": ");
             numberList.add(scannerObject.nextInt());
-        }
-
-        //Perform sum of all numbers in the numberList
-        for(Integer numbers: numberList){
-           sum+=numbers;
+            sum += numberList.get(i); // calculation the sum of the number in the list
         }
 
         average = (double)sum / numberList.size(); // calculating the average of all numbers in the numberList
@@ -87,8 +84,8 @@ public class SimpleMath {
         /* This block prints/display the results after calculations are finished. */
         System.out.println("The sum of all the numbers is: " + sum);
         System.out.format("The average of all the numbers is: %.2f \n", average);
-        System.out.println("The minimum of all the numbers are: " + minimum);
-        System.out.println("The maximum of all the numbers are: " + maximum);
+        System.out.println("The minimum of all the numbers is: " + minimum);
+        System.out.println("The maximum of all the numbers is: " + maximum);
         System.out.println("The Square root of the maximum number is: " + squareRoot);
     }
 
@@ -100,19 +97,28 @@ public class SimpleMath {
         /* switch block call appropriate method based on the choice the user selected.  */
         switch(choice){
             case 1:
-                int sumResult = simpleMath.sum(2000, 400); // passing number to be calculated
-                System.out.println("The sum of the numbers are : " + sumResult );
+                System.out.print("Please the first number: ");
+                int firstNumber = scannerObject.nextInt();
+
+                System.out.print("Please the second number: ");
+                int secondNumber = scannerObject.nextInt();
+
+                System.out.println("The sum of the numbers are: " +
+                        simpleMath.sumOfTwoNumbers(firstNumber, secondNumber) );
                 break;
             case 2:
                 System.out.print("Please enter a number to be rounded to 2 decimal places: ");
-                double convertedResult = simpleMath.convertToDecimal(scannerObject.nextDouble()); // converting and return the user input
-                System.out.println("The number you entered converted to 2 decimal place is: "+  convertedResult);
+                double numberToBeRounded = scannerObject.nextDouble();
+
+                System.out.println("The number you entered converted to 2 decimal place is: "+
+                        simpleMath.convertToDecimal(numberToBeRounded)); // converting and return the user input
                 break;
             case 3:
-                simpleMath.calculateNumbers();
+                simpleMath.calculateFiveNumbers();
                 break;
             default:
-                System.exit(0);
+                System.out.println("Invalid choice");
+                System.exit(0); // end the program in the user enters an invalid choice.
         }
     }
 
