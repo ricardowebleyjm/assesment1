@@ -5,7 +5,7 @@ Create a compound interest calculator that can calculate compound interest
 upon a user-specified time (i.e. year, days or months)
 */
 
-/**
+/*
  * @author WebleyR
  *
  */
