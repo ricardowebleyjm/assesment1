@@ -19,7 +19,7 @@ public class LeapYear {
      * Verifies if the year that was passed in is a Leap Year.
      * To determine whether a year is a leap year:
      * <ul>
-     *     <li>If the year is evenly divisible by 4.</li>
+     *     <li>If the year is evenly divisible by 4</li>
      *     <li>If the year is evenly divisible by 100</li>
      *     <li>If the year is evenly divisible by 400</li>
      * </ul>
