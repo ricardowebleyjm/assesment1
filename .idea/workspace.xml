@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="caa277c8-509a-4c65-b922-c604e229d2a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/program5/LeapYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program5/LeapYear.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;database.inspector&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.CompoundInterest">
+  <component name="RunManager" selected="Application.LeapYear">
     <configuration name="BasicUserInput" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.program1.BasicUserInput" />
       <module name="Assessment1" />
@@ -79,6 +80,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LeapYear" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.program5.LeapYear" />
+      <module name="Assessment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.program5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SimpleMath" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.program2.SimpleMath" />
       <module name="Assessment1" />
@@ -94,6 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LeapYear" />
         <item itemvalue="Application.CompoundInterest" />
         <item itemvalue="Application.CurrencyConverter" />
         <item itemvalue="Application.SimpleMath" />

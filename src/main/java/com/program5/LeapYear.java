@@ -19,22 +19,22 @@ public class LeapYear {
      * Verifies if the year that was passed in is a Leap Year.
      * To determine whether a year is a leap year:
      * <ul>
-     *     <li>If the year is evenly divisible by 4</li>
-     *     <li>If the year is evenly divisible by 100</li>
-     *     <li>If the year is evenly divisible by 400</li>
+     *     <li>If the year is evenly divisible by 4 using the modulus operator</li>
+     *     <li>If the year is evenly divisible by 100 using the modulus operator</li>
+     *     <li>If the year is evenly divisible by 400 using the modulus operator</li>
      * </ul>
      * @param year
      * @return boolean
      */
     public static boolean leapYearChecker(int year){
-
-        if( ((year % 4 == 0 ) && (year % 400 == 0))// Check If the year is evenly divisible by 4 and 400
-                || (year % 100 != 0) ) // Check If the year is not evenly divisible by 100
-            {
+        if(year % 4 == 0){ // check if the year directly dividable by 4 == 0 (modulus)
+            if(year % 100 !=0){ // is the previous if block passes, the check if year mod 100
                 return true;
             }
-        return false; // return false if none of the conditions were met
-
+        } else if (year % 400 == 0) {// check if the year directly dividable by 400 == 0 (modulus)
+            return true;
+        }
+        return false; // return false is none of the conditions were met.
     }
 
 
@@ -55,7 +55,9 @@ public class LeapYear {
         **/
         boolean isLeapYear = LeapYear.leapYearChecker(Integer.parseInt(year));
 
-        if(isLeapYear){ // Checks to verify if isLeapYear evaluates to true
+        // Checks to verify if isLeapYear evaluates to true
+        //if(LeapYear.leapYearChecker(Integer.parseInt(year)) == true){
+        if(LeapYear.leapYearChecker(Integer.parseInt(year))){
             System.out.println("The year " + year + " is a leap year from the date you provided");
         }else{ // Informs the user that the year is not leap year
             System.out.println(year + " is not a leap year");
