@@ -49,18 +49,11 @@ public class LeapYear {
         LocalDate localDate = LocalDate.parse(date); //converting the year to a LocalDate object
         year = String.valueOf(localDate.getYear()); // retrieving the year for the parsed date as a String
 
-        /*
-        * Storing the return value of the leapYearChecker method in isLeapYear
-        * Convert the year to type int since it was collected as a String
-        **/
-        boolean isLeapYear = LeapYear.leapYearChecker(Integer.parseInt(year));
-
         // Checks to verify if isLeapYear evaluates to true
-        //if(LeapYear.leapYearChecker(Integer.parseInt(year)) == true){
         if(LeapYear.leapYearChecker(Integer.parseInt(year))){
             System.out.println("The year " + year + " is a leap year from the date you provided");
-        }else{ // Informs the user that the year is not leap year
-            System.out.println(year + " is not a leap year");
+        }else{
+            System.out.println(year + " is not a leap year"); // Informs the user that the year is not leap year
         }
 
     }
