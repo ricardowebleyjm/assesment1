@@ -92,6 +92,8 @@ public class CompoundInterest {
 
     public static void main(String[] args){
         Scanner scannerInput = new Scanner(System.in);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##"); // Sets the formatting for decimal values
+
 
         // local variable declaration
         double principal, interestRate;
@@ -118,14 +120,20 @@ public class CompoundInterest {
             case 1:
                 System.out.println("The compound interest  on the principal is: " +
                         compoundInterest.dailyCompoundInterest()); // printing the result of daily CI
+                System.out.println("Total Amount after including Compound Interest: " +
+                        Double.parseDouble(decimalFormat.format(compoundInterest.dailyCompoundInterest() + principal)));
                 break;
             case 2:
                 System.out.println("The compound interest on the principal is: " +
                         compoundInterest.monthlyCompoundInterest()); // printing the result of monthly CI
+                System.out.println("Total Amount after including Compound Interest: " +
+                        Double.parseDouble(decimalFormat.format(compoundInterest.monthlyCompoundInterest() + principal)));
                 break;
             case 3:
                 System.out.println("The compound interest on the principal is: " +
                         compoundInterest.yearlyCompoundInterest()); // printing the result of Annual/Yearly CI
+                System.out.println("Total Amount after including Compound Interest: " +
+                        Double.parseDouble(decimalFormat.format(compoundInterest.yearlyCompoundInterest() + principal)));
                 break;
             default:
                 System.exit(0);
